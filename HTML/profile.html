@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{meta:title}</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		<link rel="shortcut icon" href="//{cpanel:domain}/images/favicon.png">
+		<link rel="icon" type="image/png" href="//{cpanel:domain}/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" href="//{cpanel:domain}/images/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="CyanDark">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/panel.css" rel="stylesheet" type="text/css" />
+        <!-- cPanel Style -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/cpanel.css" rel="stylesheet" type="text/css" />
+		
+		<!-- Force SSL -->        
+        <script>
+		var acturl = document.URL;
+		    if(acturl.match(/http:/g) && acturl.match(/dashboard.{cpanel:domain}/g)){
+		       acturl = acturl.replace("http:", "https:"); 
+		       window.location = acturl;
+		    }
+		</script> 
+				
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        <style>
+        .block{padding-left: 0px !important; padding-right: 20px !important;}
+        </style>
+        </head>    
+    <body class="skin-cyan">
+                        <div id="loading-mask"><div class="loader" style="font-size: 80px; color: #3c8dbc;"><center><i class="fa fa-cog fa-spin"></i></center></div></div>
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="/index" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                cyandark
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                       
+ <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><span id="menu_more">More...</span></li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="/referral">
+                                                <i class="fa fa-users info"></i> <span id="menu_referrals">Referrals</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/news">
+                                                <i class="fa fa-bullhorn danger"></i> <span id="menu_news">News</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/knowledgebase">
+                                                <i class="fa fa-question warning"></i> <span id="menu_faq">Frequently Asked Questions</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/domains-manager">
+                                                <i class="fa fa-globe success"></i> <span id="menu_domains">Domains</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- User Account -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" class="img-circle" alt="User Image" style=" width: 30px; margin-top: -5px; margin-right: 10px; background: #fff; float: left; border: 1px solid #ffffff;"/>
+                                <span style="text-transform: capitalize;"><span class="namecap"></span> <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+        <script>
+        function showphotoup (){
+        $('#photoup').fadeIn();
+        window.scrollTo(0,0);
+        }
+        function showlangup (){
+        $('#langup').fadeIn();
+        window.scrollTo(0,0);
+        return false;
+        }
+        </script>
+                                    <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" onclick="showphotoup();" style="cursor: pointer;" class="img-circle" alt="Change Image" />
+                                    <p style="text-transform: capitalize;">
+                                        <span class="namecap"></span> <!-- Name Capitalized -->
+                                        <small style="text-transform: lowercase;">{client:email}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="col-xs-4 text-center">
+                                        <a href="/invoices" id="billing_label">Billing</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a href="/helpdesk" id="tickets_label">Tickets</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <a onclick="showlangup();" href="#" id="lang_label">Language</a>
+                                    </div>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="/profile" id="profile_label" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/auth/logout" id="sign_out_label" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p style="text-transform: capitalize;">
+                                        <span id="hello_msj">Hello</span>, <span class="namefirst"></span></p>
+
+                            <a href="#" id="online_msj"><i class="fa fa-circle text-success"></i> Online</a>
+                        </div>
+                    </div>
+                    <!-- search form -->
+                   <form method="post" action="/search" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Search..."/>
+                            <input type="hidden" name="show" value="">
+                            <span class="input-group-btn">
+                                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                 <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="/switcher">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="treeview" id="section_1">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span id="title_1_menu">Account</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="1_menu"><a href="/accounts/details/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Details</a></li>
+                                <li id="2_menu"><a href="/accounts/start/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Getting Started</a></li>
+                                <li id="3_menu"><a href="/accounts/upgrade/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Upgrade</a></li>
+                                <li id="4_menu"><a href="/accounts/change-password/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                                <li id="5_menu"><a href="/accounts/change-theme/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Theme</a></li>
+                                <li id="6_menu"><a href="/accounts/change-language/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Language</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_2">
+                            <a href="#">
+                                <i class="fa fa-envelope"></i>
+                                <span id="title_2_menu">Emails</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="7_menu"><a href="/emails/manage/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Manage Emails</a></li>
+                                <li id="8_menu"><a href="/emails/forwarders/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Manage Forwarders</a></li>
+                                <li id="9_menu"><a href="/emails/mx/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Edit MX Record</a></li>
+                                <li><a href="/emails/webmail/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Webmail</a></li>
+                                <li id="10_menu"><a href="/emails/mail-service-control/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Mail Service Control</a></li>
+                                <li id="11_menu"><a href="/emails/sent-mail-logs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Sent Mail Logs</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_3">
+                            <a href="#">
+                                <i class="fa fa-globe"></i> <span id="title_3_menu">Domains</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="12_menu"><a href="/domains-manager"><i class="fa fa-angle-double-right"></i> Domains</a></li>
+                                <li id="13_menu"><a href="/domains/subdomains/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Subdomains</a></li>
+                                <li id="14_menu"><a href="/domains/parked/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Parked Domains</a></li>
+                                <li id="15_menu"><a href="/domains/addon/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Addon Domains</a></li>
+                                <li id="16_menu"><a href="/domains/redirects/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Redirects</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_4">
+                            <a href="#">
+                                <i class="fa fa-cloud"></i> <span id="title_4_menu">Website</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="17_menu"><a href="/website/import/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Import Website</a></li>
+                                <li id="18_menu"><a href="/website/database-import/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Import Database</a></li>
+                                <li id="19_menu"><a href="/website/website-templates/website-builder/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Website Builder</a></li>
+                                <li id="20_menu"><a href="/website/auto-installer/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Auto Installer</a></li>
+                                <li id="21_menu"><a href="/website/stats/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Statistics</a></li>
+                                <li id="22_menu"><a href="/website/latest-visitor-report/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Latest Visitors</a></li>
+                                <li id="23_menu"><a href="/website/error-pages/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Error Pages</a></li>
+                                <li><a href="#" target="_new" id="analyze_web"><i class="fa fa-angle-double-right"></i> <span id="25_menu">Analyze Web</span></a></li>
+                                <li><a href="/website/zyro-builder/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Site Pro Builder</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_5">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span id="title_5_menu">Files</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="26_menu"><a href="/files/ftp-access/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Access</a></li>
+                                <li id="27_menu"><a href="/files/ftp-accounts/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Account</a></li>
+                                <li id="28_menu"><a href="/files/ftp-login-history/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Login History</a></li>
+                                <li id="29_menu"><a href="/files/manager-2/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Cloud Client</a></li>
+                                <li id="30_menu"><a href="/files/backups/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Backups</a></li>
+                                <li id="31_menu"><a href="/files/error-logs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Error Logs</a></li>
+                                <li id="32_menu"><a href="/files/file-manager/aid/{client:id}"><i class="fa fa-angle-double-right"></i> File Manager</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_6">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i> <span id="title_6_menu">Advanced</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                                <small class="badge pull-right bg-yellow"><span class="insert_databases_number">0</span></small>
+
+                            </a>
+                            <ul class="treeview-menu" id="section_7">
+                                <li id="33_menu"><a href="/advanced/mysql-databases/aid/{client:id}"><i class="fa fa-angle-double-right"></i> MySQL Databases <b>[<span class="insert_databases_number">0</span>]</b></a></li>
+                                <li><a href="/advanced/phpmyadmin/aid/{client:id}"><i class="fa fa-angle-double-right"></i> phpMyAdmin</a></li>
+                                <li id="35_menu"><a href="/advanced/cronjobs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Cron Jobs</a></li>
+                                <li id="36_menu"><a href="/advanced/advanced-cron-jobs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Advanced Cron Jobs</a></li>
+                                <li id="37_menu"><a href="/advanced/cron-output/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Cron Output</a></li>
+                                <li id="38_menu"><a href="/advanced/ssh-console/aid/{client:id}"><i class="fa fa-angle-double-right"></i> SSH Console</a></li>
+                                <li id="39_menu"><a href="/advanced/dns-zone-editor/aid/{client:id}"><i class="fa fa-angle-double-right"></i> DNS Zone Editor</a></li>
+                                <li id="40_menu"><a href="/advanced/phpinfo/aid/{client:id}"><i class="fa fa-angle-double-right"></i> PHP Info</a></li>
+                                <li id="41_menu"><a href="/advanced/php-configuration/aid/{client:id}"><i class="fa fa-angle-double-right"></i> PHP Configuration</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_8">
+                            <a href="#">
+                                <i class="fa fa-code-fork"></i> <span id="title_7_menu">Other</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="42_menu"><a href="/other/password-protect-dirs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Password Protection Directories</a></li>
+                                <li id="43_menu"><a href="/other/ip-deny/aid/{client:id}"><i class="fa fa-angle-double-right"></i> IP Deny Manager</a></li>
+                                <li id="44_menu"><a href="/other/hotlink-protection/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Hotlink Protection</a></li>
+                                <li id="45_menu"><a href="/other/folder-index-manager/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Folder Index Manager</a></li>
+                                <li id="46_menu"><a href="/other/fix-file-ownership/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Fix File Ownership</a></li>
+                                <li id="47_menu"><a href="/other/reload-account/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Reload Account</a></li>
+                                <li id="48_menu"><a href="/other/delete-account/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Delete Account</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_9">
+                            <a href="#">
+                                <i class="fa fa-briefcase"></i> <span id="title_8_menu">Professional Services</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="49_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> Web Design</a></li>
+                                <li id="50_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> App Development</a></li>
+                                <li id="51_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> Graphic Design</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_10">
+                            <a href="#">
+                                <i class="fa fa-wrench"></i> <span id="title_9_menu">Tools</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="52_menu"><a href="//tawk.to/e92ba94341756f6f287fe97b4fd65da576ea6876/popout/default/?$_tawk_popout=true&$_tawk_sk=54af3962f052df9f488a2909&$_tawk_tk=10a6db6c71205d63a42aaaafe7e2fcd3&v=278" onclick="window.open(this.href, '_blank', 'width=300,height=400'); return false;"><i class="fa fa-angle-double-right"></i> Support</a></li>
+                                <li id="53_menu"><a href="//www.mojomarketplace.com/scripts"><i class="fa fa-angle-double-right"></i> Mojo Marketplace</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        <span class="insert_title"></span>
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li id="home_msj"><a href="/index"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active"><span class="insert_title"></span></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                            	<center>{block:messages}</center>
+                                
+                                <!-- START TABS -->
+                    <div class="row">
+                        <div class="col-md-6" style="width: 100%;">
+                            <!-- Custom Tabs -->
+                            <div class="nav-tabs-custom" style="display: none;">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#tab_1" id="tab1" data-toggle="tab">Profile</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" id="tab_dop" href="#">
+                                            Edit Profile <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li role="presentation"><a data-toggle="tab" tabindex="-1" id="tab2" href="#tab_2">Edit Profile</a></li>
+                                            <li role="presentation"><a data-toggle="tab" tabindex="-1" id="tab3" href="#tab_3">Edit Photo</a></li>
+                                            <li role="presentation"><a data-toggle="tab" tabindex="-1" id="tab4" href="#tab_4">Change Password</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1">
+                                        
+                                        
+                                        <table style="width: auto; margin-left: 12px !important;">
+                				<tr>
+                				<td><img id="img_edit_pro" style=" margin-right: 23px; margin-top: 20px; " src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" class="img-circle" alt="User Image" /></td>
+            					<td>
+                                <h1 style="text-transform: capitalize;"><span class="namecap">Name</span></h1>
+                                <h4>{client:email}</h4>
+        						</td>
+        						</tr>
+        						<tr style="vertical-align: top;">
+        						<td style="padding-right: 15px; max-width: 315px;">
+                                <br>
+                                <h3 id="address_label">Address</h3>
+                                <h4><span class="insert_address"></span></h4>
+                                </td>
+            					<td style="padding-right: 15px; max-width: 315px;">
+                                <br>
+                                <h3 id="phone_label">Phone</h3>
+                                <h4><span class="insert_phone"></span></h4>
+                                </td>
+                                </tr>
+                                </table>
+                                
+                                  </td>
+                                </tr>
+                                </table>
+                                        
+                                    </div><!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                        						<h2 class="page-header" id="edpro_he">Edit Profile</h2>
+                                        
+                                        <form action="/profile/change" method="post">
+        <table style="width: 98%;">
+                                                            
+                <tbody><tr><td id="email-label"><p>E-mail address</p></td>
+<td class="element">
+<input type="text" name="email" class="form-control" id="email" value="{client:email}" style=" margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                            
+                <tr><td id="first_name-label"><p>Name</p></td>
+<td class="element">
+<input type="text" name="first_name" id="first_name" value="{client:name}" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                            
+                <tr><td id="last_name-label"><p>Last Name</p></td>
+<td class="element">
+<input type="text" name="last_name" id="last_name" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                            
+                <tr><td id="company-label"><p>Company</p></td>
+<td class="element">
+<input type="text" name="company" id="company" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                            
+                <tr><td id="address_1-label"><p>Address</p></td>
+<td class="element">
+<input type="text" name="address_1" id="address_1" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                
+                <tr><td id="city-label"><p>City</p></td>
+<td class="element">
+<input type="text" name="city" id="city" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+
+                <tr><td id="city-label"><p>ZIP</p></td>
+<td class="element">
+<input type="text" name="zip" id="zip" class="form-control" style="margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                            
+                <tr><td id="country-label"><p>Country</p></td>
+<td class="element">
+<select name="country" id="country" class="form-control" style=" margin-bottom: 12px; margin-left: 10px; cursor: pointer; filter: alpha(opacity=0); -khtml-appearance: none; -webkit-appearance: none;">
+    <option value="0">Choose a country</option> <option value="AF">Afghanistan</option> <option value="AL">Albania</option> <option value="DZ">Algeria</option> <option value="AS">American Samoa</option> <option value="AD">Andorra</option> <option value="AO">Angola</option> <option value="AI">Anguilla</option> <option value="AQ">Antarctica</option> <option value="AG">Antigua and Barbuda</option> <option value="AR">Argentina</option> <option value="AM">Armenia</option> <option value="AW">Aruba</option> <option value="AU">Australia</option> <option value="AT">Austria</option> <option value="AZ">Azerbaijan</option> <option value="BS">Bahamas</option> <option value="BH">Bahrain</option> <option value="BD">Bangladesh</option> <option value="BB">Barbados</option> <option value="BY">Belarus</option> <option value="BE">Belgium</option> <option value="BZ">Belize</option> <option value="BJ">Benin</option> <option value="BM">Bermuda</option> <option value="BT">Bhutan</option> <option value="BO">Bolivia</option> <option value="BA">Bosnia and Herzegovina</option> <option value="BW">Botswana</option> <option value="BV">Bouvet Island</option> <option value="BR">Brazil</option> <option value="BQ">British Antarctic Territory</option> <option value="IO">British Indian Ocean Territory</option> <option value="VG">British Virgin Islands</option> <option value="BN">Brunei</option> <option value="BG">Bulgaria</option> <option value="BF">Burkina Faso</option> <option value="BI">Burundi</option> <option value="KH">Cambodia</option> <option value="CM">Cameroon</option> <option value="CA">Canada</option> <option value="CT">Canton and Enderbury Islands</option> <option value="CV">Cape Verde</option> <option value="KY">Cayman Islands</option> <option value="CF">Central African Republic</option> <option value="TD">Chad</option> <option value="CL">Chile</option> <option value="CN">China</option> <option value="CX">Christmas Island</option> <option value="CC">Cocos [Keeling] Islands</option> <option value="CO">Colombia</option> <option value="KM">Comoros</option> <option value="CG">Congo - Brazzaville</option> <option value="CD">Congo - Kinshasa</option> <option value="CK">Cook Islands</option> <option value="CR">Costa Rica</option> <option value="HR">Croatia</option> <option value="CU">Cuba</option> <option value="CY">Cyprus</option> <option value="CZ">Czech Republic</option> <option value="CI">Côte d’Ivoire</option> <option value="DK">Denmark</option> <option value="DJ">Djibouti</option> <option value="DM">Dominica</option> <option value="DO">Dominican Republic</option> <option value="NQ">Dronning Maud Land</option> <option value="DD">East Germany</option> <option value="EC">Ecuador</option> <option value="EG">Egypt</option> <option value="SV">El Salvador</option> <option value="GQ">Equatorial Guinea</option> <option value="ER">Eritrea</option> <option value="EE">Estonia</option> <option value="ET">Ethiopia</option> <option value="FK">Falkland Islands</option> <option value="FO">Faroe Islands</option> <option value="FJ">Fiji</option> <option value="FI">Finland</option> <option value="FR">France</option> <option value="GF">French Guiana</option> <option value="PF">French Polynesia</option> <option value="TF">French Southern Territories</option> <option value="FQ">French Southern and Antarctic Territories</option> <option value="GA">Gabon</option> <option value="GM">Gambia</option> <option value="GE">Georgia</option> <option value="DE">Germany</option> <option value="GH">Ghana</option> <option value="GI">Gibraltar</option> <option value="GR">Greece</option> <option value="GL">Greenland</option> <option value="GD">Grenada</option> <option value="GP">Guadeloupe</option> <option value="GU">Guam</option> <option value="GT">Guatemala</option> <option value="GG">Guernsey</option> <option value="GN">Guinea</option> <option value="GW">Guinea-Bissau</option> <option value="GY">Guyana</option> <option value="HT">Haiti</option> <option value="HM">Heard Island and McDonald Islands</option> <option value="HN">Honduras</option> <option value="HK">Hong Kong SAR China</option> <option value="HU">Hungary</option> <option value="IS">Iceland</option> <option value="IN">India</option> <option value="ID">Indonesia</option> <option value="IR">Iran</option> <option value="IQ">Iraq</option> <option value="IE">Ireland</option> <option value="IM">Isle of Man</option> <option value="IL">Israel</option> <option value="IT">Italy</option> <option value="JM">Jamaica</option> <option value="JP">Japan</option> <option value="JE">Jersey</option> <option value="JT">Johnston Island</option> <option value="JO">Jordan</option> <option value="KZ">Kazakhstan</option> <option value="KE">Kenya</option> <option value="KI">Kiribati</option> <option value="KW">Kuwait</option> <option value="KG">Kyrgyzstan</option> <option value="LA">Laos</option> <option value="LV">Latvia</option> <option value="LB">Lebanon</option> <option value="LS">Lesotho</option> <option value="LR">Liberia</option> <option value="LY">Libya</option> <option value="LI">Liechtenstein</option> <option value="LT">Lithuania</option> <option value="LU">Luxembourg</option> <option value="MO">Macau SAR China</option> <option value="MK">Macedonia</option> <option value="MG">Madagascar</option> <option value="MW">Malawi</option> <option value="MY">Malaysia</option> <option value="MV">Maldives</option> <option value="ML">Mali</option> <option value="MT">Malta</option> <option value="MH">Marshall Islands</option> <option value="MQ">Martinique</option> <option value="MR">Mauritania</option> <option value="MU">Mauritius</option> <option value="YT">Mayotte</option> <option value="FX">Metropolitan France</option> <option value="MX">Mexico</option> <option value="FM">Micronesia</option> <option value="MI">Midway Islands</option> <option value="MD">Moldova</option> <option value="MC">Monaco</option> <option value="MN">Mongolia</option> <option value="ME">Montenegro</option> <option value="MS">Montserrat</option> <option value="MA">Morocco</option> <option value="MZ">Mozambique</option> <option value="MM">Myanmar [Burma]</option> <option value="NA">Namibia</option> <option value="NR">Nauru</option> <option value="NP">Nepal</option> <option value="NL">Netherlands</option> <option value="AN">Netherlands Antilles</option> <option value="NT">Neutral Zone</option> <option value="NC">New Caledonia</option> <option value="NZ">New Zealand</option> <option value="NI">Nicaragua</option> <option value="NE">Niger</option> <option value="NG">Nigeria</option> <option value="NU">Niue</option> <option value="NF">Norfolk Island</option> <option value="KP">North Korea</option> <option value="VD">North Vietnam</option> <option value="MP">Northern Mariana Islands</option> <option value="NO">Norway</option> <option value="OM">Oman</option> <option value="PC">Pacific Islands Trust Territory</option> <option value="PK">Pakistan</option> <option value="PW">Palau</option> <option value="PS">Palestinian Territories</option> <option value="PA">Panama</option> <option value="PZ">Panama Canal Zone</option> <option value="PG">Papua New Guinea</option> <option value="PY">Paraguay</option> <option value="YD">People's Democratic Republic of Yemen</option> <option value="PE">Peru</option> <option value="PH">Philippines</option> <option value="PN">Pitcairn Islands</option> <option value="PL">Poland</option> <option value="PT">Portugal</option> <option value="PR">Puerto Rico</option> <option value="QA">Qatar</option> <option value="RO">Romania</option> <option value="RU">Russia</option> <option value="RW">Rwanda</option> <option value="RE">Réunion</option> <option value="BL">Saint Barthélemy</option> <option value="SH">Saint Helena</option> <option value="KN">Saint Kitts and Nevis</option> <option value="LC">Saint Lucia</option> <option value="MF">Saint Martin</option> <option value="PM">Saint Pierre and Miquelon</option> <option value="VC">Saint Vincent and the Grenadines</option> <option value="WS">Samoa</option> <option value="SM">San Marino</option> <option value="SA">Saudi Arabia</option> <option value="SN">Senegal</option> <option value="RS">Serbia</option> <option value="CS">Serbia and Montenegro</option> <option value="SC">Seychelles</option> <option value="SL">Sierra Leone</option> <option value="SG">Singapore</option> <option value="SK">Slovakia</option> <option value="SI">Slovenia</option> <option value="SB">Solomon Islands</option> <option value="SO">Somalia</option> <option value="ZA">South Africa</option> <option value="GS">South Georgia and the South Sandwich Islands</option> <option value="KR">South Korea</option> <option value="ES">Spain</option> <option value="LK">Sri Lanka</option> <option value="SD">Sudan</option> <option value="SR">Suriname</option> <option value="SJ">Svalbard and Jan Mayen</option> <option value="SZ">Swaziland</option> <option value="SE">Sweden</option> <option value="CH">Switzerland</option> <option value="SY">Syria</option> <option value="ST">São Tomé and Príncipe</option> <option value="TW">Taiwan</option> <option value="TJ">Tajikistan</option> <option value="TZ">Tanzania</option> <option value="TH">Thailand</option> <option value="TL">Timor-Leste</option> <option value="TG">Togo</option> <option value="TK">Tokelau</option> <option value="TO">Tonga</option> <option value="TT">Trinidad and Tobago</option> <option value="TN">Tunisia</option> <option value="TR">Turkey</option> <option value="TM">Turkmenistan</option> <option value="TC">Turks and Caicos Islands</option> <option value="TV">Tuvalu</option> <option value="UM">U.S. Minor Outlying Islands</option> <option value="PU">U.S. Miscellaneous Pacific Islands</option> <option value="VI">U.S. Virgin Islands</option> <option value="UG">Uganda</option> <option value="UA">Ukraine</option> <option value="SU">Union of Soviet Socialist Republics</option> <option value="AE">United Arab Emirates</option> <option value="GB">United Kingdom</option> <option value="US" selected="selected">United States</option> <option value="ZZ">Unknown or Invalid Region</option> <option value="UY">Uruguay</option> <option value="UZ">Uzbekistan</option> <option value="VU">Vanuatu</option> <option value="VA">Vatican City</option> <option value="VE">Venezuela</option> <option value="VN">Vietnam</option> <option value="WK">Wake Island</option> <option value="WF">Wallis and Futuna</option> <option value="EH">Western Sahara</option> <option value="YE">Yemen</option> <option value="ZM">Zambia</option> <option value="ZW">Zimbabwe</option> <option value="AX">Åland Islands</option>
+</select></td></tr>
+                                                            
+                <tr><td id="state-label"><p>State/Region/Province</p></td>
+<td class="element">
+<input type="text" name="state" id="state" class="form-control" style=" margin-bottom: 12px; margin-left: 10px;"></td></tr>
+                                                                                                                <tr>
+                        <td id="phone-label">
+                            <p>Phone</p>
+                        </td>
+                        <td class="element">
+                    		<table style="width: 100%;">
+                    			<tr>                                             
+									<td style=" padding-left: 10px; width: 86px; ">
+										<input type="text" name="phone_cc" id="phone_cc" class="form-control" value="" style="margin-top: -12px;width: 86px !important;">
+									</td>
+                                	<td style=" width: 90%; ">
+                                		<input type="text" name="phone" id="phone" class="form-control" style=" margin-bottom: 12px; margin-left: 10px; width: 100%;">
+                                	</td>
+								</tr>
+							</table>
+                        </td>
+                    </tr>
+                    
+                    <tr class="bot">
+                <td colspan="2">
+                    
+<input type="submit" name="submit" class="btn btn-primary" id="submit" value="Update">                    <input class="btn" type="button" value="Back" onclick="window.location = '/profile';
+                            return false;">
+                </td>
+            </tr>
+        </tbody></table>
+    </form>
+                                    </div><!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_3">
+						<h2 class="page-header" id="uplo_head">Upload Photo</h2>
+
+                  <form action="//{cpanel:domain}/cpanel/profile/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" class="bootstrap-wysihtml5-insert-image-url form-control" name="fileToUpload" id="fileToUpload">
+    <input type="text" name="id" value="{client:id}" style="display:none;">
+    <input type="text" name="url" value="{cpanel:url}index" style="display:none;">
+    <input type="text" name="act" value="xebB7H9tGu89Xkq27sqV" style="display:none;">
+
+        <div class="modal-footer">
+        
+    <input type="submit" class="btn btn-primary" value="Upload Image" name="submit">
+        </div></form>
+                                    </div><!-- /.tab-pane -->
+<div class="tab-pane" id="tab_4">
+						<h2 class="page-header" id="changpsw_head">Change Password</h2>
+
+<form action="/profile/change-password" method="post" autocomplete="off">
+        <table style="width: 98%;">
+
+            <tbody><tr>
+                <td>Enter a new password</td>
+                <td>
+<input type="password" class="form-control" name="password" id="password" value="" style=" margin-bottom: 12px; margin-left: 10px;"> </td>
+            </tr>
+            <tr>
+                <td>Verify password</td>
+                <td>
+<input type="password" class="form-control" name="password_confirm" id="password_confirm" value="" style=" margin-bottom: 12px; margin-left: 10px;"></td>
+                <td></td>
+            </tr>
+            <tr class="bot">
+                <td colspan="3">    
+<input type="submit" class="btn btn-primary" name="submit" id="submit" value="Change">                </td>
+            </tr>
+        </tbody></table>
+        </form>
+                                </div><!-- /.tab-content -->
+                            </div><!-- nav-tabs-custom -->
+                        </div><!-- /.col -->
+
+                    </div> <!-- /.row -->
+                    <!-- END CUSTOM TABS -->
+                                     
+                           <!-- Invoices Div -->
+                           <center><div class="box box-info" style="display: none; width: 98%; text-align: left;" id="invoicesdivw">
+                                <div class="box-header">
+                                    <i class="fa fa-bullhorn"></i>
+                                    <h3 class="box-title"><span class="insert_title"></span></h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                             <div class="cont-wrap" style="width: 100%;">
+                                
+                                {block:content}
+                                                        		
+                            </div>
+                                </div><!-- /.box-body -->
+                            </div></center>
+                           <!-- End Invoices Div -->
+                                                      
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+        <!-- upload image profile -->
+<center><div class="modal-dialog" id="photoup" style="display:none; position: absolute; z-index: 50; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; ">
+        <div class="modal-header">
+          <a class="close" onclick="hidephotoup();" data-dismiss="modal">×</a>
+          <h3 id="dialog_upload_photo">Upload Photo</h3>
+        </div>
+        <div class="modal-body">
+                  <form action="//{cpanel:domain}/cpanel/profile/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" class="bootstrap-wysihtml5-insert-image-url form-control" name="fileToUpload" id="fileToUpload">
+    <input type="text" name="id" value="{client:id}" style="display:none;">
+    <input type="text" name="url" value="{cpanel:url}index" style="display:none;">
+    <input type="text" name="act" value="xebB7H9tGu89Xkq27sqV" style="display:none;">
+
+        </div>
+        <div class="modal-footer">
+        <script>
+        function hidephotoup (){
+        $('#photoup').fadeOut();
+        }
+        </script>
+        
+          <a class="btn btn-default" onclick="hidephotoup();" id="cancel_modal_button" data-dismiss="modal">Cancel</a>
+    <input type="submit" class="btn btn-primary" id="upload_modal_button" value="Upload Image" name="submit">
+        </div></form>
+      </div>
+    </div></center>
+    
+    <!-- change language -->
+    <center><div class="modal-dialog" id="langup" style="display:none; position: absolute; z-index: 50; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; ">
+        <div class="modal-header">
+          <a class="close" onclick="hidelangup();" data-dismiss="modal">×</a>
+          <h3 id="dialog_change_language">Change Language</h3>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+        <style>
+        label[for="lang_selector"] span{ margin-right: 20px; }
+        </style>
+                  {block:selector:lang:dropdown}
+        <script>
+        function hidelangup (){
+        $('#langup').fadeOut();
+        }
+        </script>
+      </div>
+    </div></center>
+    
+        <!-- not available -->
+    <center><div class="modal-dialog" id="notav" style="display:none; position: absolute; z-index: 401; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; text-align: left;">
+        <div class="modal-header">
+          <a class="close" onclick="hidenotav();" data-dismiss="modal">×</a>
+          <h3 id="dialog_not_available"> <i class="fa fa-fw fa-warning"></i> Not Available</h3>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+                  <p id="this_feature_not_available">This feature is not available to free users.</p>
+        <script>
+        function hidenotav (){
+        $('#notav').fadeOut();
+        }
+        </script>
+      </div>
+    </div></center>
+
+    <div class="account_manager" style="display: none;"><table style="width: 100%;"><tr> <td><center><div style="cursor: pointer;" onclick="change();"><br><img src="//{cpanel:domain}/cpanel/bootstrap/img/icons/other-folder-index-manager.png"><br>Manage</div></center></td> <td><center><div style="cursor: pointer;" onclick="builder();"><br><img src="//{cpanel:domain}/cpanel/bootstrap/img/icons/website-applications.png"><br>Website Builder</div></center></td> <td><center><div style="cursor: pointer;" onclick="webmail();"><br><img src="//{cpanel:domain}/cpanel/bootstrap/img/icons/emails-webmail.png"><br>Webmail</div></center></td> <td><center><div style="cursor: pointer;" onclick="$('.account_manager').fadeOut(500);"><br><img src="//{cpanel:domain}/cpanel/bootstrap/img/icons/accounts-change-theme.png"><br>Close</div></center></td> </tr></table></div>
+<!----------- API -------------->
+
+		<!-- API Data-->
+		<div style="display: none;" id="api_data">
+		                       <div id="account_api">{block:account}</div>
+		                            {block:client}
+		                    <div class="cont-wrap">
+                                {block:content}
+                            </div>
+		</div>
+		
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- Morris.js charts -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+        <!-- Sparkline -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+        <!-- jvectormap -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+        <!-- daterangepicker -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <!-- datepicker -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <!-- iCheck -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <!-- Bootstrap App -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/app.js?v=2.0" type="text/javascript"></script>
+        <!-- Dashboard JS -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/dashboard.js" type="text/javascript"></script>	
+        <!-- cPanel API -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/api-cp.js?v=2.0" type="text/javascript"></script>
+        <!-- Translate to Spanish -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/esp-pro.js?v=2.0" type="text/javascript"></script>
+        <!-- QuickSearch -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/jquery.quicksearch.js" type="text/javascript"></script>
+
+	<script>
+	// Transform Name
+	var name = '{client:name}';
+	var name = name.toLowerCase();
+	$('.namecap').text(name);
+	var name = '{client:name}';
+	var name2 = name.split(" ");
+	var name2 = name2[0].toLowerCase();
+	$('.namefirst').text(name2);
+	//Design
+	$('table[class="type-3"]').css("border", "0px solid #ffffff");
+	$('table[class="type-3"]').css("box-shadow", "0px 0px 0px #ffffff");
+        //Databases Number
+        $.get( "/advanced/mysql-databases", function( data ) { 
+                 var str = data;
+				 var count = (str.match(/mysql.{cpanel:domain}/g) || []).length;
+ 				 $('.insert_databases_number').text(((count - 1) / 2));
+		});
+		//Detect inactivity
+		var time = 900000; // 15 Min - 900000
+		var timer = setTimeout(function() { document.location.href='//{cpanel:domain}/cpanel/lockscreen.php?&id={client:id}&name={client:name}&mail={client:email}&tk=br25sPLXwfJwv657mCPA'; }, time);
+		//Get Title
+        var title = '{meta:title}';
+        var title = title.substring(16, title.length);
+        $('.insert_title').text(title);
+		//Get Invoices/Domains/FAQ/News/Help Desk/Accounts(SWTCHR)/Referral
+        var acturl = document.URL;
+        if(acturl.match(/invoices/g) || acturl.match(/search/g) || acturl.match(/domains-manager/g) || acturl.match(/referral/g) || acturl.match(/news/g) || acturl.match(/knowledgebase/g) || acturl.match(/helpdesk/g) || acturl.match(/switcher/g)){
+        $('.nav-tabs-custom').hide();
+        $('#invoicesdivw').show();
+        } else{ $('.nav-tabs-custom').show(); }           
+        var content = $('#invoicesdivw').html();
+        if(acturl.match(/profile/g) && acturl.match(/change-password/g)){ $('.insert_title').text('Profile'); }
+		if(acturl.match(/profile/g) && acturl.match(/change/g)){ $('.insert_title').text('Profile'); }
+		if(acturl.match(/news/g) || acturl.match(/knowledgebase/g)){  $('.type-5').removeClass("type-5").addClass('type-1'); }
+		</script>
+				
+	<!-- JS cPanel -->		
+	<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/jquery.progressbar.min.js"></script>
+	<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/jquery.jgrowl.js"></script>
+	<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/functions.js"></script>
+	<link href="/scripts/jgrowl/jquery.jgrowl.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="/scripts/treeview/jquery.fbis.treeview.css" media="screen" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/scripts/treeview/jquery.fbis.treeview.js"></script>
+	<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/meta.js"></script>     
+
+	<script>
+        var panelurl = document.URL;
+        if(panelurl.match(/create/g)){
+				$('.block.top').css("padding-left", "0px");
+            	$('tr#type-subdomain').show('slow');
+           		$('tr#type-domain').show('slow'); }
+	</script>
+	<!-- End JS cPanel -->
+	
+		<!-- Animations -->
+		<script>
+	$('#loading-mask').fadeOut();
+		</script>   
+		
+        <!-- OfflineJS -->
+		<script src="//{cpanel:domain}/cpanel/bootstrap/js/offline.js"></script>
+		<link href="//{cpanel:domain}/cpanel/bootstrap/css/offline-theme-default.css" rel="stylesheet" type="text/css" />
+		<link id="lang_offlinejs" href="//{cpanel:domain}/cpanel/bootstrap/css/offline-language-english.css" rel="stylesheet" type="text/css" />
+		<script>
+		var text = $('.account-information').text();
+		if(text.match(/Información/g)){ $('#lang_offlinejs').attr('href', '//{cpanel:domain}/cpanel/bootstrap/css/offline-language-spanish.css'); } else { $('#lang_offlinejs').attr('href', '//{cpanel:domain}/cpanel/bootstrap/css/offline-language-english.css'); }		
+		</script>     			
+    </body>
+</html>

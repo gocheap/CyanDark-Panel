@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{meta:title}</title>
+        <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+		<link rel="shortcut icon" href="//{cpanel:domain}/images/favicon.png">
+		<link rel="icon" type="image/png" href="//{cpanel:domain}/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon-precomposed" href="//{cpanel:domain}/images/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-title" content="CyanDark">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link href='//fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <!-- Ionicons -->
+        <link href="//code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <!-- Morris chart -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/morris/morris.css" rel="stylesheet" type="text/css" />
+        <!-- jvectormap -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+        <!-- Date Picker -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+        <!-- Daterange picker -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+        <!-- bootstrap wysihtml5 - text editor -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+        <!-- Theme style -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/panel.css" rel="stylesheet" type="text/css" />
+        <!-- cPanel Style -->
+        <link href="//{cpanel:domain}/cpanel/bootstrap/css/cpanel.css" rel="stylesheet" type="text/css" />
+		
+		<!-- Force SSL -->        
+        <script>
+		var acturl = document.URL;
+		    if(acturl.match(/http:/g) && acturl.match(/dashboard.{cpanel:domain}/g)){
+		       acturl = acturl.replace("http:", "https:"); 
+		       window.location = acturl;
+		    }
+		</script> 
+		
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="skin-cyan">
+                        <div id="loading-mask"><div class="loader" style="font-size: 80px; color: #3c8dbc;"><center><i class="fa fa-cog fa-spin"></i></center></div></div>
+
+        <!-- header logo: style can be found in header.less -->
+        <header class="header">
+            <a href="/index" class="logo">
+                <!-- Add the class icon to your logo image or logo icon to add the margining -->
+                cyandark
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                       
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-tasks"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header"><span id="menu_more">More...</span></li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="/referral">
+                                                <i class="fa fa-users info"></i> <span id="menu_referrals">Referrals</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/news">
+                                                <i class="fa fa-bullhorn danger"></i> <span id="menu_news">News</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/knowledgebase">
+                                                <i class="fa fa-question warning"></i> <span id="menu_faq">Frequently Asked Questions</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/domains-manager">
+                                                <i class="fa fa-globe success"></i> <span id="menu_domains">Domains</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <!-- User Account -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!--<i class="glyphicon glyphicon-user"></i>-->
+                                <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" class="img-circle" alt="User Image" style=" width: 30px; margin-top: -5px; margin-right: 10px; background: #fff; float: left; border: 1px solid #ffffff;"/>
+                                <span style="text-transform: capitalize;"><span class="namecap"></span> <i class="caret"></i></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header bg-light-blue">
+        <script>
+        function showphotoup (){
+        $('#photoup').fadeIn();
+        window.scrollTo(0,0);
+        }
+        function showlangup (){
+        $('#langup').fadeIn();
+        window.scrollTo(0,0);
+        return false;
+        }
+        </script>
+                                    <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" onclick="showphotoup();" style="cursor: pointer;" class="img-circle" alt="Change Image" />
+                                    <p style="text-transform: capitalize;">
+                                        <span class="namecap"></span> <!-- Name Capitalized -->
+                                        <small style="text-transform: lowercase;">{client:email}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Body -->
+                                <li class="user-body">
+                                    <div class="col-xs-4 text-center" id="billing_label">
+                                        <a href="/invoices">Billing</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center" id="tickets_label">
+                                        <a href="/helpdesk">Tickets</a>
+                                    </div>
+                                    <div class="col-xs-4 text-center" id="lang_label">
+                                        <a onclick="showlangup();" href="#">Language</a>
+                                    </div>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="/profile" class="btn btn-default btn-flat" id="profile_label">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="/auth/logout" class="btn btn-default btn-flat" id="sign_out_label">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+             <!-- Left side column. contains the logo and sidebar -->
+            <aside class="left-side sidebar-offcanvas">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="//{cpanel:domain}/cpanel/profile/profile.php?tk=fRedre8hAYuduC2uRecr4bRUguvazEra&id={client:id}" class="img-circle" alt="User Image" />
+                        </div>
+                        <div class="pull-left info">
+                            <p style="text-transform: capitalize;">
+                                        <span id="hello_msj">Hello</span>, <span class="namefirst"></span></p>
+
+                            <a href="#"><i class="fa fa-circle text-success"></i> <span id="online_msj">Online</span></a>
+                        </div>
+                    </div>
+                    <!-- search form -->
+                   <form method="post" action="/search" class="sidebar-form">
+                        <div class="input-group">
+                            <input type="text" name="search" class="form-control" placeholder="Search..."/>
+                            <input type="hidden" name="show" value="">
+                            <span class="input-group-btn">
+                                <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                 <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu">
+                        <li class="active">
+                            <a href="/switcher">
+                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="treeview" id="section_1">
+                            <a href="#">
+                                <i class="fa fa-user"></i>
+                                <span id="title_1_menu">Account</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="1_menu"><a href="/accounts/details/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Details</a></li>
+                                <li id="2_menu"><a href="/accounts/start/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Getting Started</a></li>
+                                <li id="3_menu"><a href="/accounts/upgrade/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Upgrade</a></li>
+                                <li id="4_menu"><a href="/accounts/change-password/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Password</a></li>
+                                <li id="5_menu"><a href="/accounts/change-theme/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Theme</a></li>
+                                <li id="6_menu"><a href="/accounts/change-language/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Change Language</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_2">
+                            <a href="#">
+                                <i class="fa fa-envelope"></i>
+                                <span id="title_2_menu">Emails</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="7_menu"><a href="/emails/manage/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Manage Emails</a></li>
+                                <li id="8_menu"><a href="/emails/forwarders/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Manage Forwarders</a></li>
+                                <li id="9_menu"><a href="/emails/mx/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Edit MX Record</a></li>
+                                <li><a href="/emails/webmail/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Webmail</a></li>
+                                <li id="10_menu"><a href="/emails/mail-service-control/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Mail Service Control</a></li>
+                                <li id="11_menu"><a href="/emails/sent-mail-logs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Sent Mail Logs</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_3">
+                            <a href="#">
+                                <i class="fa fa-globe"></i> <span id="title_3_menu">Domains</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="12_menu"><a href="/domains-manager"><i class="fa fa-angle-double-right"></i> Domains</a></li>
+                                <li id="13_menu"><a href="/domains/subdomains/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Subdomains</a></li>
+                                <li id="14_menu"><a href="/domains/parked/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Parked Domains</a></li>
+                                <li id="15_menu"><a href="/domains/addon/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Addon Domains</a></li>
+                                <li id="16_menu"><a href="/domains/redirects/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Redirects</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_4">
+                            <a href="#">
+                                <i class="fa fa-cloud"></i> <span id="title_4_menu">Website</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="17_menu"><a href="/website/import/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Import Website</a></li>
+                                <li id="18_menu"><a href="/website/database-import/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Import Database</a></li>
+                                <li id="19_menu"><a href="/website/website-templates/website-builder/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Website Builder</a></li>
+                                <li id="20_menu"><a href="/website/auto-installer/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Auto Installer</a></li>
+                                <li id="21_menu"><a href="/website/stats/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Statistics</a></li>
+                                <li id="22_menu"><a href="/website/latest-visitor-report/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Latest Visitors</a></li>
+                                <li id="23_menu"><a href="/website/error-pages/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Error Pages</a></li>
+                                <li><a href="#" target="_new" id="analyze_web"><i class="fa fa-angle-double-right"></i> <span id="25_menu">Analyze Web</span></a></li>
+                                <li><a href="/website/zyro-builder/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Site Pro Builder</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_5">
+                            <a href="#">
+                                <i class="fa fa-folder"></i> <span id="title_5_menu">Files</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="26_menu"><a href="/files/ftp-access/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Access</a></li>
+                                <li id="27_menu"><a href="/files/ftp-accounts/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Account</a></li>
+                                <li id="28_menu"><a href="/files/ftp-login-history/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Login History</a></li>
+                                <li id="29_menu"><a href="/files/manager-2/aid/{client:id}"><i class="fa fa-angle-double-right"></i> FTP Cloud Client</a></li>
+                                <li id="30_menu"><a href="/files/backups/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Backups</a></li>
+                                <li id="31_menu"><a href="/files/error-logs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Error Logs</a></li>
+                                <li id="32_menu"><a href="/files/file-manager/aid/{client:id}"><i class="fa fa-angle-double-right"></i> File Manager</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_6">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i> <span id="title_6_menu">Advanced</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                                <small class="badge pull-right bg-yellow"><span class="insert_databases_number">0</span></small>
+
+                            </a>
+                            <ul class="treeview-menu" id="section_7">
+                                <li id="33_menu"><a href="/advanced/mysql-databases/aid/{client:id}"><i class="fa fa-angle-double-right"></i> MySQL Databases <b>[<span class="insert_databases_number">0</span>]</b></a></li>
+                                <li><a href="/advanced/phpmyadmin/aid/{client:id}"><i class="fa fa-angle-double-right"></i> phpMyAdmin</a></li>
+                                <li id="35_menu"><a href="/advanced/cronjobs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Cron Jobs</a></li>
+                                <li id="36_menu"><a href="/advanced/advanced-cron-jobs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Advanced Cron Jobs</a></li>
+                                <li id="37_menu"><a href="/advanced/cron-output/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Cron Output</a></li>
+                                <li id="38_menu"><a href="/advanced/ssh-console/aid/{client:id}"><i class="fa fa-angle-double-right"></i> SSH Console</a></li>
+                                <li id="39_menu"><a href="/advanced/dns-zone-editor/aid/{client:id}"><i class="fa fa-angle-double-right"></i> DNS Zone Editor</a></li>
+                                <li id="40_menu"><a href="/advanced/phpinfo/aid/{client:id}"><i class="fa fa-angle-double-right"></i> PHP Info</a></li>
+                                <li id="41_menu"><a href="/advanced/php-configuration/aid/{client:id}"><i class="fa fa-angle-double-right"></i> PHP Configuration</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_8">
+                            <a href="#">
+                                <i class="fa fa-code-fork"></i> <span id="title_7_menu">Other</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="42_menu"><a href="/other/password-protect-dirs/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Password Protection Directories</a></li>
+                                <li id="43_menu"><a href="/other/ip-deny/aid/{client:id}"><i class="fa fa-angle-double-right"></i> IP Deny Manager</a></li>
+                                <li id="44_menu"><a href="/other/hotlink-protection/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Hotlink Protection</a></li>
+                                <li id="45_menu"><a href="/other/folder-index-manager/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Folder Index Manager</a></li>
+                                <li id="46_menu"><a href="/other/fix-file-ownership/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Fix File Ownership</a></li>
+                                <li id="47_menu"><a href="/other/reload-account/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Reload Account</a></li>
+                                <li id="48_menu"><a href="/other/delete-account/aid/{client:id}"><i class="fa fa-angle-double-right"></i> Delete Account</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_9">
+                            <a href="#">
+                                <i class="fa fa-briefcase"></i> <span id="title_8_menu">Professional Services</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="49_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> Web Design</a></li>
+                                <li id="50_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> App Development</a></li>
+                                <li id="51_menu"><a href="//{cpanel:domain}/"><i class="fa fa-angle-double-right"></i> Graphic Design</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview" id="section_10">
+                            <a href="#">
+                                <i class="fa fa-wrench"></i> <span id="title_9_menu">Tools</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li id="52_menu"><a href="//tawk.to/e92ba94341756f6f287fe97b4fd65da576ea6876/popout/default/?$_tawk_popout=true&$_tawk_sk=54af3962f052df9f488a2909&$_tawk_tk=10a6db6c71205d63a42aaaafe7e2fcd3&v=278" onclick="window.open(this.href, '_blank', 'width=300,height=400'); return false;"><i class="fa fa-angle-double-right"></i> Support</a></li>
+                                <li id="53_menu"><a href="//www.mojomarketplace.com/scripts"><i class="fa fa-angle-double-right"></i> Mojo Marketplace</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <!-- /.sidebar -->
+            </aside>
+
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>
+                        <span class="insert_title"></span>
+                        <small>http://www.<span class="insert_webdata_domain"></span></small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="/index" id="home_msj"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active"><span class="insert_title"></span></li>
+                    </ol>
+                </section>
+
+                <!-- Main content -->
+                <section class="content">
+                                    <div id="demobox">
+                                        <i class="fa fa-info"></i>
+                                        <b>Welcome to Control Panel Demo!</b> Feel free to use our powerful control panel. <a href="https://{cpanel:domain}/"><div style="float: right;"><span class="fa fa-money"></span> Buy Now!</div></a>
+                                    </div>
+                                    {block:messages}
+                    <!-- Small boxes (Stat box) -->
+                    <div class="row">
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-aqua" style="display: none;">
+                                <div class="inner">
+                                    <h3>
+                                        <span class="insert_php_version">5</span> <!-- PHP Version -->
+                                    </h3>
+                                    <p>
+                                        PHP Version
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-code-working"></i>
+                                </div>
+                                <a href="/advanced/php-configuration" class="small-box-footer">
+                                    More info <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-green" style="display: none;">
+                                <div class="inner">
+                                    <h3>
+                                <span class="insert_bounce_rate">0</span><sup style="font-size: 20px">%</sup> <!-- Bounce Rate -->
+                                    </h3>
+                                    <p>
+                                        Bounce Rate
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-stats-bars"></i>
+                                </div>
+                                <a href="/website/latest-visitor-report" class="small-box-footer">
+                                    More info <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-blue" style="display: none;">
+                                <div class="inner">
+                                    <h3>
+                                        <span class="insert_accounts_number">0</span>  <!-- Accounts Number -->
+                                    </h3>
+                                    <p>
+                                        Active Accounts
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                                <a href="/switcher" class="small-box-footer">
+                                    More info <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div><!-- ./col -->
+                        <div class="col-lg-3 col-xs-6">
+                            <!-- small box -->
+                            <div class="small-box bg-red" style="display: none;">
+                                <div class="inner">
+                                    <h3>
+                                        <span class="insert_unique_visitors">0</span> <!-- Visitors Number -->
+                                    </h3>
+                                    <p>
+                                        Unique Visitors
+                                    </p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-pie-graph"></i>
+                                </div>
+                                <a href="/website/stats" class="small-box-footer">
+                                    More info <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div><!-- ./col -->
+                    </div><!-- /.row -->
+
+                    <!-- Main row -->
+                    <div class="row">
+                        <!-- Left col -->
+                        <section class="col-lg-7 connectedSortable">
+							
+                            <!-- Custom tabs (Charts with tabs)-->
+                            <div class="nav-tabs-custom">
+                                <!-- Tabs within a box -->
+                                <ul class="nav nav-tabs pull-right">
+                                    <li class="active"><a href="#visitors-chart" data-toggle="tab" id="visitors_label">Visitors</a></li>
+                                    <li><a href="#space-chart" data-toggle="tab" id="free_space_label">Free Space</a></li>
+                                    <li class="pull-left header" id="statistics_label"><i class="fa fa-inbox"></i> Statistics</li>
+                                </ul>
+                                <div class="tab-content no-padding">
+                                
+                                    <!-- Morris chart - Sales -->
+                                    <div class="chart tab-pane active" id="visitors-chart" style="position: relative; height: 300px;"></div>
+                                    <div class="chart tab-pane" id="space-chart" style="position: relative; height: 300px; text-align: center;"></div>
+                                </div>
+                            </div><!-- /.nav-tabs-custom -->
+
+							<!-- Information Block -->
+							<div class="box box-solid box-danger">
+								<div class="box-header">
+									<h3 class="box-title" id="inf_org_box">Information</h3>
+									<div class="box-tools pull-right">
+										<button class="btn btn-danger btn-sm" data-widget="collapse" style="background: #dd4b39 !important;"><i class="fa fa-minus"></i></button>
+										<button class="btn btn-danger btn-sm" data-widget="remove" style="background: #dd4b39 !important;"><i class="fa fa-times"></i></button>
+									</div>
+								</div>
+								<div class="box-body" style="color: #888888;">
+									<table style="width: 100%;">
+										<tr>
+											<td id="reg_date_box"><b><i class="fa fa-fw fa-calendar"></i> Registration Date:</b> <span class="insert_usrdata_regdate"></span></td>
+											<td id="server_box"><b><i class="fa fa-fw fa-bars"></i> Server:</b> <span class="insert_srvdata_url"></span></td>
+										</tr>
+										<tr>
+											<td id="host_plan_box"><b><i class="fa fa-fw fa-tasks"></i> Hosting Plan:</b> <span class="insert_webdata_plan"></span></td>
+											<td id="status_box"><b><i class="fa fa-fw fa-question-circle"></i> Status:</b> <span class="insert_webdata_status"></span></td>
+										</tr>
+									</table>
+								</div> 
+							</div>
+
+                            <!-- quick email widget -->
+                            <div class="box box-solid box-info">
+                                <div class="box-header">
+                                    <i class="fa fa-envelope"></i>
+                                    <h3 class="box-title">Quick Email</h3>
+                                    <!-- tools box -->
+                                    <div class="pull-right box-tools">
+                                        <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+                                    </div><!-- /. tools -->
+                                </div>
+                                <div class="box-body" id="email_to_label">
+                                    <form action="//{cpanel:domain}/cpanel/profile/email_send.php" method="post">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="emailto" placeholder="Email to:"/>
+                                            <input type="text" name="from_m" value="{client:email}" style="display: none;"/>
+                                            <input type="text" name="url_ret" value="{cpanel:url}index" style="display: none;"/>
+                                            <input type="text" name="send" value="yes" style="display: none;"/>
+                                        </div>
+                                        <div class="form-group" id="subject_label">
+                                            <input type="text" class="form-control" name="subject" placeholder="Subject"/>
+                                        </div>
+                                        <div>
+                                            <textarea class="textarea" name="msj" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                        </div>
+                                    
+                                </div>
+                                <div class="box-footer clearfix">
+                                <small id="sent_from_label">Sent from: {client:email}</small>
+                                    <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+                                </div></form>
+                            </div>
+
+                        </section><!-- /.Left col -->
+                        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                        <section class="col-lg-5 connectedSortable">
+
+
+                            <!-- solid sales graph -->
+                            <div class="box box-solid bg-light-blue-solid">
+                                <div class="box-header">
+                                    <i class="fa fa-th"></i>
+                                    <h3 class="box-title" id="bandwidth_consumption_label">Bandwidth Consumption</h3>
+                                    <div class="box-tools pull-right">
+                                        <button class="btn bg-light-blue btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn bg-light-blue btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                                <div class="box-body border-radius-none">
+                                    <div class="chart" id="line-chart" style="height: 250px;"></div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer no-border">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                            <input type="text" class="knob" data-readonly="true" value="10" id="srvload" data-width="60" data-height="60" data-fgColor="#4794C0"/>
+                                            <div class="knob-label" id="server_load_label">Server Load</div>
+                                        </div><!-- ./col -->
+                                        <div class="col-xs-4 text-center" style="border-right: 1px solid #f4f4f4">
+                                            <input type="text" class="knob" data-readonly="true" value="70" id="cpuusage" data-width="60" data-height="60" data-fgColor="#4794C0"/>
+                                            <div class="knob-label" id="cpu_usage_label">CPU Usage</div>
+                                        </div><!-- ./col -->
+                                        <div class="col-xs-4 text-center">
+                                            <input type="text" class="knob" data-readonly="true" value="1" id="sqlload" data-width="60" data-height="60" data-fgColor="#4794C0"/>
+                                            <div class="knob-label" id="mysql_load_label">MySQL Load</div>
+                                        </div><!-- ./col -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-footer -->
+                            </div><!-- /.box -->
+
+                            <!-- Calendar -->
+                            <div class="box box-solid bg-green-flat">
+                                <div class="box-header">
+                                    <i class="fa fa-calendar"></i>
+                                    <h3 class="box-title" id="calendar_label" >Calendar</h3>
+                                    <!-- tools box -->
+                                    <div class="pull-right box-tools">
+                                        <!-- button with a dropdown -->
+                                        <button class="btn btn-success btn-sm" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-success btn-sm" data-widget="remove"><i class="fa fa-times"></i></button>
+                                    </div><!-- /. tools -->
+                                </div><!-- /.box-header -->
+                                <div class="box-body no-padding">
+                                    <!--The calendar -->
+                                    <div id="calendar" style="width: 100%"></div>
+                                </div><!-- /.box-body -->
+                                <div class="box-footer text-black">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <!-- Progress bars -->
+                                            <div class="clearfix">
+                                                <span class="pull-left" id="apache_bandwidth">Apache Bandwidth</span>
+                                                <small class="pull-right"><span class="insert_bandwidthusg_numbers"></span></small>
+                                            </div>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-green" id="apacheband" style="width: 90%;"></div>
+                                            </div>
+
+                                        </div><!-- /.col -->
+                                        <div class="col-sm-6">
+                                            <div class="clearfix">
+                                                <span class="pull-left" id="nginx_bandwidth">Nginx Bandwidth</span>
+                                                <small class="pull-right"><span class="insert_bandwidthusg_numbers2"></span></small>
+                                            </div>
+                                            <div class="progress xs">
+                                                <div class="progress-bar progress-bar-green" id="nginxband" style="width: 60%;"></div>
+                                            </div>
+
+                                        </div><!-- /.col -->
+                                    </div><!-- /.row -->
+                                </div>
+                            </div><!-- /.box -->
+<!-- Application buttons -->
+                            <div class="box" id="quick_links_label">
+                                <div class="box-header">
+                                    <h3 class="box-title">Quick Links</h3>
+                                </div>
+                                <div class="box-body">
+                                    <a href="/accounts/change-password" class="btn btn-app">
+                                        <i class="fa fa-lock"></i> Change Password
+                                    </a>
+                                    <a href="/emails/webmail" class="btn btn-app">
+                                        <i class="fa fa-envelope"></i> Webmail
+                                    </a>
+                                    <a href="/website/stats" class="btn btn-app">
+                                        <i class="fa fa-bar-chart"></i> Statistics
+                                    </a>
+                                    <a href="/files/backups" class="btn btn-app">
+                                        <i class="fa fa-cloud-download"></i> Backups
+                                    </a>
+                                    <a href="/files/file-manager" class="btn btn-app">
+                                        <i class="fa fa-folder-open"></i> File Manager
+                                    </a>
+                                    <a href="/files/ftp-accounts" class="btn btn-app">
+                                        <span class="badge bg-yellow"><span class="insert_ftp_number">0</span></span>
+                                        <i class="fa fa-archive"></i> FTP Accounts
+                                    </a>
+                                    <a href="#" target="_blank" id="analyze_web2" class="btn btn-app">
+                                        <i class="fa fa-wrench"></i> Analyze Website
+                                    </a>
+                                    <a href="/advanced/mysql-databases" class="btn btn-app">
+                                        <span class="badge bg-purple"><span class="insert_databases_number">0</span></span>
+                                        <i class="fa fa-database"></i> MySQL Databases
+                                    </a>
+                                    <a href="/advanced/ssh-console" class="btn btn-app">
+                                        <i class="fa fa-terminal"></i> SSH Console
+                                    </a>
+ 
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </section><!-- right col -->
+                    </div><!-- /.row (main row) -->
+
+                </section><!-- /.content -->
+            </aside><!-- /.right-side -->
+        </div><!-- ./wrapper -->
+
+        <!-- add new calendar event modal --> 
+        
+        <!-- upload image profile -->
+<center><div class="modal-dialog" id="photoup" style="display:none; position: absolute; z-index: 50; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; ">
+        <div class="modal-header">
+          <a class="close" onclick="hidephotoup();" data-dismiss="modal">×</a>
+          <h3 id="dialog_upload_photo">Upload Photo</h3>
+        </div>
+        <div class="modal-body">
+                  <form action="//{cpanel:domain}/cpanel/profile/upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" class="bootstrap-wysihtml5-insert-image-url form-control" name="fileToUpload" id="fileToUpload">
+    <input type="text" name="id" value="{client:id}" style="display:none;">
+    <input type="text" name="url" value="{cpanel:url}index" style="display:none;">
+    <input type="text" name="act" value="xebB7H9tGu89Xkq27sqV" style="display:none;">
+
+        </div>
+        <div class="modal-footer">
+        <script>
+        function hidephotoup (){
+        $('#photoup').fadeOut();
+        }
+        </script>
+        
+          <a class="btn btn-default" onclick="hidephotoup();" id="cancel_modal_button" data-dismiss="modal">Cancel</a>
+    <input type="submit" class="btn btn-primary" id="upload_modal_button" value="Upload Image" name="submit">
+        </div></form>
+      </div>
+    </div></center>
+    
+    <!-- change language -->
+    <center><div class="modal-dialog" id="langup" style="display:none; position: absolute; z-index: 50; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; ">
+        <div class="modal-header">
+          <a class="close" onclick="hidelangup();" data-dismiss="modal">×</a>
+          <h3 id="dialog_change_language">Change Language</h3>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+        <style>
+        label[for="lang_selector"] span{ margin-right: 20px; }
+        </style>
+                  {block:selector:lang:dropdown}
+        <script>
+        function hidelangup (){
+        $('#langup').fadeOut();
+        }
+        </script>
+      </div>
+    </div></center>
+    
+        <!-- not available -->
+    <center><div class="modal-dialog" id="notav" style="display:none; position: absolute; z-index: 50; float: center; top: 100px; width: 100%;">
+      <div class="modal-content" style=" width: 70%; text-align: left;">
+        <div class="modal-header">
+          <a class="close" onclick="hidenotav();" data-dismiss="modal">×</a>
+          <h3 id="dialog_not_available"> <i class="fa fa-fw fa-warning"></i> Not Available</h3>
+        </div>
+        <div class="modal-body" style="text-align: center;">
+                  <p id="this_feature_not_available">This feature is not available to free users.</p>
+        <script>
+        function hidenotav (){
+        $('#notav').fadeOut();
+        }
+        </script>
+      </div>
+    </div></center>
+<!----------- API -------------->
+
+		<!-- API Data-->
+		<div style="display: none;" id="api_data">
+		                       <div id="account_api">{block:account}</div>
+		                            {block:client}
+		                    <div class="cont-wrap">
+                                {block:content}
+                            </div>
+		</div>
+		
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="//code.jquery.com/ui/1.11.1/jquery-ui.min.js" type="text/javascript"></script>
+        <!-- Morris.js charts -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/morris/morris.min.js" type="text/javascript"></script>
+        <!-- Sparkline -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/sparkline/jquery.sparkline.min.js" type="text/javascript"></script>
+        <!-- jvectormap -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js" type="text/javascript"></script>
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js" type="text/javascript"></script>
+        <!-- jQuery Knob Chart -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/jqueryKnob/jquery.knob.js" type="text/javascript"></script>
+        <!-- daterangepicker -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/daterangepicker/daterangepicker.js" type="text/javascript"></script>
+        <!-- datepicker -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+        <!-- Bootstrap WYSIHTML5 -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+        <!-- iCheck -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+        <!-- Bootstrap App -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/app.js?v=2.0" type="text/javascript"></script>
+        <!-- Dashboard JS -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/dashboard.js" type="text/javascript"></script>
+        <!-- cPanel API -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/api-cp.js?v=2.0" type="text/javascript"></script>
+        <!-- Translate to Spanish -->
+        <script src="//{cpanel:domain}/cpanel/bootstrap/js/esp-def.js?v=2.0" type="text/javascript"></script>  
+		
+		<!-- Space Chart -->
+		<script>
+				//Space Chart
+        var text = $('.account-information').html();
+			if(text.match(/Información/g)){
+		var used = $('.account-information td:contains("Disco usado:")').next().text();
+	    var used = parseFloat(used.substring(12, used.search("/")));
+	    
+	    var free = $('.account-information td:contains("Disco usado:")').next().text();
+	    if(free.indexOf("Unlimited") > -1){var free = 0; var frspat = 'Unlimited Space';}
+	    else{
+	    var free = parseFloat(free.substring((free.search("/") + 2), free.search("MB"))); var frspat = 'Espacio Libre (MB)';}
+	    
+    var donut = new Morris.Donut({
+        element: 'space-chart',
+        resize: true,
+        colors: ["#3c8dbc", "#D2D6DE"],
+        data: [
+            {label: "Espacio Usado (MB)", value: used},
+            {label: frspat, value: free}
+        ],
+        hideHover: 'auto'
+    });
+			} else {
+	    var used = $('.account-information td:contains("Disk Usage:")').next().text();
+	    var used = parseFloat(used.substring(12, used.search("/")));
+	    
+	    var free = $('.account-information td:contains("Disk Usage:")').next().text();
+	    if(free.indexOf("Unlimited") > -1){var free = 0; var frspat = 'Unlimited Space';}
+	    else{
+	    var free = parseFloat(free.substring((free.search("/") + 2), free.search("MB"))); var frspat = 'Free Space (MB)';}
+	    
+    var donut = new Morris.Donut({
+        element: 'space-chart',
+        resize: true,
+        colors: ["#3c8dbc", "#D2D6DE"],
+        data: [
+            {label: "Used Space (MB)", value: used},
+            {label: frspat, value: free}
+        ],
+        hideHover: 'auto'
+    });
+										}
+		</script>	
+        <!-- Unique Visitors -->
+        <script>
+        $.get( "/website/stats", function( data ) {var str = data;
+    			 var n = str.search("// Unique Visitors For This Month");
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 
+    			 var d = new Date();
+                 var year = ''.concat(d.getFullYear());
+                 var month = '0'.concat(d.getMonth() + 1);
+                 var date_form = year.concat('-').concat(month).concat('-');
+                 var f1 = date_form.concat('1');
+                 
+                 var n = str.search(f1);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring((n + f1.length + 2), n2);
+    			 var n3 = res.search("],");
+    			 var res = res.substring(0, n3);
+ 				 $('.insert_unique_visitors').text(res);
+		});</script>
+		
+        <!-- Accounts Number -->
+        <script>
+        $.get( "/switcher", function( data ) {
+        		 var text = $('.account-information').text();
+			     var pattern = /Información/;
+				 var exists = pattern.test(text);
+                 var str = data;
+                 if(exists){
+				 	var count = (str.match(/Cambiar/g) || []).length;
+				 } else {
+				 	var count = (str.match(/Switch/g) || []).length;
+				 }			 
+ 				 $('.insert_accounts_number').text((count / 2));
+		});</script>
+		
+        <!-- Bounce Rate (Rb = Vu/Vh) -->
+        <script>
+        $.get( "/website/stats", function( data ) {
+        			//Get unique visitors
+        		 var strQ = data;
+    			 var nQ = (strQ.search("// Unique Visitors For This Month") + 516);
+    			 var n2Q = (strQ.search("</html>") + 7);
+    			 var resQ = strQ.substring(nQ, n2Q);
+    			 var n3Q = resQ.search("],");
+    			 var resQ = resQ.substring(0, n3Q);
+    			 
+    			   //Get Hits
+        		 var str = data;
+    			 var n = (str.search("// Page Hits For This Month") + 503);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var res = parseInt((parseFloat(resQ)/parseFloat(res.substring(0, n3))));
+ 				 $('.insert_bounce_rate').text(res);
+		});</script>
+
+	<!-- Statistics -->
+	<script>
+	        $.get( "/website/stats", function( data ) {
+	             var d = new Date();
+                 var year = ''.concat(d.getFullYear());
+                 var month = '0'.concat(d.getMonth() + 1);
+                 var date_form = year.concat('-').concat(month).concat('-');
+                 
+                 var f1 = date_form.concat('1');
+                 var f2 = date_form.concat('5');
+                 var f3 = date_form.concat('10');
+                 var f4 = date_form.concat('15');
+                 var f5 = date_form.concat('20');
+                 var f6 = date_form.concat('25');
+                  
+                 if(month == '02'){
+                 var f7 = date_form.concat('28');}
+                 else{ var f7 = date_form.concat('30'); }
+                 
+                 //Get Visitors
+        		 var str = data;
+    			 var n = (str.search(f1)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv1 = res.substring(0, n3);
+    			 
+    			 var n = (str.search(f2)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv2 = res.substring(0, n3);
+    			 
+    			 var n = (str.search(f3)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv3 = res.substring(0, n3);
+
+    			 var n = (str.search(f4)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv4 = res.substring(0, n3);
+
+    			 var n = (str.search(f5)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv5 = res.substring(0, n3);
+
+    			 var n = (str.search(f6)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv6 = res.substring(0, n3);
+
+    			 var n = (str.search(f7)+12);
+    			 var n2 = (str.search("</html>") + 7);
+    			 var res = str.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var uv7 = res.substring(0, n3);
+    			 
+    			 //Get Hits
+    			 var str2 = str.substring((str.search('// Page Hits For This Month')+27), (str.search("</html>") + 7));
+    			 var n = (str2.search(f1)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit1 = res.substring(0, n3);
+    			 
+    			 var n = (str2.search(f2)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit2 = res.substring(0, n3);
+    			 
+    			 var n = (str2.search(f3)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit3 = res.substring(0, n3);
+
+    			 var n = (str2.search(f4)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit4 = res.substring(0, n3);
+
+    			 var n = (str2.search(f5)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit5 = res.substring(0, n3);
+
+    			 var n = (str2.search(f6)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit6 = res.substring(0, n3);
+
+    			 var n = (str2.search(f7)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var hit7 = res.substring(0, n3);
+    			 
+    			  //Get Bandwidth
+    			 var str2 = str.substring((str.search('// APACHE Bandwidth For This Month')+34), (str.search("</html>") + 7));
+    			 var n = (str2.search(f1)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban1 = res.substring(0, n3);
+    			 
+    			 var n = (str2.search(f2)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban2 = res.substring(0, n3);
+    			 
+    			 var n = (str2.search(f3)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban3 = res.substring(0, n3);
+
+    			 var n = (str2.search(f4)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban4 = res.substring(0, n3);
+
+    			 var n = (str2.search(f5)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban5 = res.substring(0, n3);
+
+    			 var n = (str2.search(f6)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban6 = res.substring(0, n3);
+
+    			 var n = (str2.search(f7)+12);
+    			 var n2 = (str2.search("</html>") + 7);
+    			 var res = str2.substring(n, n2);
+    			 var n3 = res.search("],");
+    			 var ban7 = res.substring(0, n3);
+    			 
+       //Visitors Chart
+        var area = new Morris.Area({
+        element: 'visitors-chart',
+        resize: true,
+        data: [
+            {y: f1 , item1: uv1, item2: hit1},
+            {y: f2 , item1: uv2, item2: hit2},
+            {y: f3 , item1: uv3, item2: hit3},
+            {y: f4 , item1: uv4, item2: hit4},
+            {y: f5 , item1: uv5, item2: hit5},
+            {y: f6 , item1: uv6, item2: hit6},
+            {y: f7 , item1: uv7, item2: hit7}
+        ],
+        xkey: 'y',
+        ykeys: ['item1', 'item2'],
+        labels: ['Visitors', 'Hits'],
+        lineColors: ['#4A93BF', '#A7B3BC'],
+        pointFillColors: ['#4A93BF', '#A7B3BC'],
+        pointStrokeColors: ['#4A93BF', '#A7B3BC'],
+        hideHover: 'auto'
+    	});
+    	
+    	//Bandwidth Chart
+    	var line = new Morris.Line({
+        element: 'line-chart',
+        resize: true,
+        data: [
+            {y: f1 , item1: ban1},
+            {y: f2 , item1: ban2},
+            {y: f3 , item1: ban3},
+            {y: f4 , item1: ban4},
+            {y: f5 , item1: ban5},
+            {y: f6 , item1: ban6},
+            {y: f7 , item1: ban7}
+        ],
+        xkey: 'y',
+        ykeys: ['item1'],
+        labels: ['Used MB'],
+        lineColors: ['#efefef'],
+        lineWidth: 2,
+        hideHover: 'auto',
+        gridTextColor: "#fff",
+        gridStrokeWidth: 0.4,
+        pointSize: 4,
+        pointStrokeColors: ["#efefef"],
+        gridLineColor: "#efefef",
+        gridTextFamily: "Open Sans",
+        gridTextSize: 10
+    });
+    		});
+	</script>
+	
+		<!-- Transform Name -->
+	<script>
+	var name = '{client:name}';
+	var name = name.toLowerCase();
+	$('.namecap').text(name);
+
+	var name = '{client:name}';
+	var name2 = name.split(" ");
+	var name2 = name2[0].toLowerCase();
+	$('.namefirst').text(name2);
+	</script>
+
+		<!-- Detect inactivity -->
+		<script>
+		var time = 900000; // 15 Min - 900000
+		var timer = setTimeout(function() { document.location.href='//{cpanel:domain}/cpanel/lockscreen.php?id={client:id}&name={client:name}&mail={client:email}&tk=br25sPLXwfJwv657mCPA'; }, time);
+		</script>
+	
+	    <!-- Databases Number -->
+        <script>
+        $.get( "/advanced/mysql-databases", function( data ) { //Insert url to SQL Databases
+            var str = data;
+			var count = (str.match(/mysql.{cpanel:domain}/g) || []).length;
+ 		    $('.insert_databases_number').text(((count - 1) / 2));
+		});</script>
+		
+		<!-- FTP Accounts Number -->
+        <script>
+        $.get( "/files/ftp-accounts", function( data ) { //Insert url to FTP Accounts
+            var str = data;
+			var count = (str.match(/ftp.{cpanel:domain}/g) || []).length;
+ 			$('.insert_ftp_number').text(count);
+		});</script>
+		
+		<!-- Get Title -->
+        <script>
+        var title = '{meta:title}';
+        var title = title.substring(16, title.length);
+        $('.insert_title').text(title);
+        </script>	 
+        
+        <!-- JS cPanel -->		     		
+<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/functions.js"></script>
+<link href="/scripts/jgrowl/jquery.jgrowl.css" media="screen" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/jquery.progressbar.min.js"></script>
+<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/jquery.jgrowl.js"></script>     
+<script type="text/javascript" src="//{cpanel:domain}/cpanel/bootstrap/js/meta.js"></script>          		
+        <!-- End JS cPanel -->  	
+        
+        <!-- Animations -->
+		<script>
+	$('#loading-mask').fadeOut();
+	$('div[class="small-box bg-aqua"]').slideDown(1000);
+	setTimeout(function(){ $('div[class="small-box bg-green"]').slideDown(1000); },1000);
+	setTimeout(function(){ $('div[class="small-box bg-blue"]').slideDown(1000); },2000);
+	setTimeout(function(){ $('div[class="small-box bg-red"]').slideDown(1000); },3000);
+		</script>  
+        
+        <!-- OfflineJS -->
+		<script src="//{cpanel:domain}/cpanel/bootstrap/js/offline.js"></script>
+		<link href="//{cpanel:domain}/cpanel/bootstrap/css/offline-theme-default.css" rel="stylesheet" type="text/css" />
+		<link id="lang_offlinejs" href="//{cpanel:domain}/cpanel/bootstrap/css/offline-language-english.css" rel="stylesheet" type="text/css" />
+		<script>
+		var text = $('.account-information').text();
+		if(text.match(/Información/g)){ $('#lang_offlinejs').attr('href', '//{cpanel:domain}/cpanel/bootstrap/css/offline-language-spanish.css'); } else { $('#lang_offlinejs').attr('href', '//{cpanel:domain}/cpanel/bootstrap/css/offline-language-english.css'); }		
+		</script> 	
+    </body>
+</html>
